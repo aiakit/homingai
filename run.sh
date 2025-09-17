@@ -3,13 +3,13 @@
 set -e
 
 # 定义配置文件路径
-CONFIG_PATH=/data/homgingai.toml
-LOG_FILE="/data/homgingai.log"
+CONFIG_PATH=/data/hahub.toml
+LOG_FILE="/data/hahub.log"
 APP_PATH="/usr/src"
 WAIT_PIDS=()
 
-function stop_homgingai() {
-    bashio::log.info "Stop homgingai"
+function stop_hahub() {
+    bashio::log.info "Stop hahub"
     kill -15 "${WAIT_PIDS[@]}"
 }
 
@@ -20,18 +20,18 @@ fi
 
 # 显示欢迎信息
 ALL_CONFIG=$(bashio::config --all)
-bashio::log.info "Starting homgingai Client...${ALL_CONFIG}"
+bashio::log.info "Starting hahub Client...${ALL_CONFIG}"
 
 cat /data/options.json
 
-# 检查 homgingai 是否存在
-if [ ! -f "${APP_PATH}/homgingai" ]; then
-    bashio::log.error "homgingai Client binary not found at ${APP_PATH}/homgingai"
+# 检查 hahub 是否存在
+if [ ! -f "${APP_PATH}/hahub" ]; then
+    bashio::log.error "hahub Client binary not found at ${APP_PATH}/hahub"
     exit 1
 fi
 
 # 确保二进制文件可执行
-chmod +x "${APP_PATH}/homgingai"
+chmod +x "${APP_PATH}/hahub"
 
 # 从 Home Assistant 配置中获取值
 PHONE=$(bashio::config 'phone')
@@ -39,7 +39,7 @@ PASSWORD=$(bashio::config 'password')
 OPENAI_KEY=$(bashio::config 'openai_key')
 AUTH_TOKEN=$(bashio::config 'auth_token')
 
-bashio::log.info "Creating homgingai Client/Server configuration..."
+bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
 bashio::log.info "Phone: ${PHONE}"
 bashio::log.info "Proxy Name: ${PASSWORD}"
@@ -60,10 +60,10 @@ if [ ! -f "${CONFIG_PATH}" ]; then
     exit 1
 fi
 
-# 启动 homgingai
-bashio::log.info "Starting homgingai Client with configuration at ${CONFIG_PATH}"
+# 启动 hahub
+bashio::log.info "Starting hahub Client/Server with configuration at ${CONFIG_PATH}"
 cd /usr/src
-./homgingai -c $CONFIG_PATH > "${LOG_FILE}" 2>&1 & WAIT_PIDS+=($!) & tail -f ${LOG_FILE}
+./hahub -c $CONFIG_PATH > "${LOG_FILE}" 2>&1 & WAIT_PIDS+=($!) & tail -f ${LOG_FILE}
 
 # 生成 Nginx 配置文件
 cat <<EOF > /etc/nginx/conf.d/default.conf
@@ -88,6 +88,6 @@ EOF
 # 启动 Nginx
 nginx -g "daemon off;" &
 
-trap "stop_homgingai" SIGTERM SIGHUP
+trap "stop_hahub" SIGTERM SIGHUP
 
 wait "${WAIT_PIDS[@]}"
