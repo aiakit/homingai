@@ -21,7 +21,7 @@ RUN \
     FILE_DIR="hahub_${HAHUB_VERSION}_linux_${MACHINE}" && \
     echo "Downloading: https://github.com/aiakit/homgingai/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" && \
     curl -L -o /tmp/${FILE_NAME} \
-        "https://github.com/aiakit/homgingai/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
+        "https://github.com/aiakit/hahub/releases/download/${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
     mkdir -p ${APP_PATH} && \
     tar xzf /tmp/${FILE_NAME} -C /tmp || exit 1 && \
     cp -f /tmp/${FILE_DIR}/homgingai ${APP_PATH}/ || exit 1 && \
