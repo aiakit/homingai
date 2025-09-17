@@ -3,25 +3,29 @@ version: 1.0.0
 slug: homgingai_homeassistant
 description: homgingai Client/Server add-on for Home Assistant with support
 url: https://github.com/aiakit/homgingai
+boot: auto
+ingress: true                     # 启用 Ingress 功能
+ingress_port: 7999               # 设置 Ingress 端口
+startup: application
+host_network: true
+init: false
+uart: true
+hassio_api: true
+hassio_role: manager
+homeassistant_api: true
 arch:
   - armhf
   - armv7
   - aarch64
   - amd64
   - i386
-startup: application
-host_network: true
-init: false
 map:
   - addons:rw
   - share:rw
+  - homeassistant_config:rw  # 允许访问 Home Assistant 配置
 options:
   phone: 手机号用于消息通知
-  password: api密码，长度至少6位
   openai_key: openai密钥
-  auth_token: homeassistant令牌
 schema:
   phone: str
-  password: str
   openai_key: str
-  auth_token: str

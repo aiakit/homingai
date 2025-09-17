@@ -3,8 +3,8 @@
 set -e
 
 # 定义配置文件路径
-CONFIG_PATH=/data/hahub.toml
-LOG_FILE="/data/hahub.log"
+CONFIG_PATH=/config/hahub.toml
+LOG_FILE="/config/hahub.log"
 APP_PATH="/usr/src"
 WAIT_PIDS=()
 
@@ -35,21 +35,17 @@ chmod +x "${APP_PATH}/hahub"
 
 # 从 Home Assistant 配置中获取值
 PHONE=$(bashio::config 'phone')
-PASSWORD=$(bashio::config 'password')
 OPENAI_KEY=$(bashio::config 'openai_key')
-AUTH_TOKEN=$(bashio::config 'auth_token')
 
 bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
-bashio::log.info "Phone: ${PHONE}"
-bashio::log.info "Proxy Name: ${PASSWORD}"
+bashio::log.info "PHONE: ${PHONE}"
+bashio::log.info "OPENAI_KEY: ${OPENAI_KEY}"
 
 # 创建 TOML 配置文件
 cat > "${CONFIG_PATH}" << EOL
 phone = "${PHONE}"
-password = ${PASSWORD}
 openai_key = "${OPENAI_KEY}"
-auth_token = "${AUTH_TOKEN}"
 EOL
 
 cat $CONFIG_PATH
@@ -65,28 +61,8 @@ bashio::log.info "Starting hahub Client/Server with configuration at ${CONFIG_PA
 cd /usr/src
 ./hahub -c $CONFIG_PATH > "${LOG_FILE}" 2>&1 & WAIT_PIDS+=($!) & tail -f ${LOG_FILE}
 
-# 生成 Nginx 配置文件
-cat <<EOF > /etc/nginx/conf.d/default.conf
-server {
-    listen 80;
-
-    location / {
-        proxy_pass http://127.0.0.1:7999/index.html;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-
-        # WebSocket 支持
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-    }
-}
-EOF
-
-# 启动 Nginx
-nginx -g "daemon off;" &
+export HASS_SERVER="http://supervisor/core"
+export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
 
 trap "stop_hahub" SIGTERM SIGHUP
 
