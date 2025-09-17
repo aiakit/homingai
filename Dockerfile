@@ -17,8 +17,8 @@ RUN \
         *) echo "Unsupported architecture: $BUILD_ARCH" && exit 1 ;; \
     esac && \
     echo "Architecture: $BUILD_ARCH, Machine: $MACHINE" && \
-    FILE_NAME="homgingai_${HAHUB_VERSION}_linux_${MACHINE}.tar.gz" && \
-    FILE_DIR="homgingai_${HAHUB_VERSION}_linux_${MACHINE}" && \
+    FILE_NAME="hahub_${HAHUB_VERSION}_linux_${MACHINE}.tar.gz" && \
+    FILE_DIR="hahub_${HAHUB_VERSION}_linux_${MACHINE}" && \
     echo "Downloading: https://github.com/aiakit/homgingai/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" && \
     curl -L -o /tmp/${FILE_NAME} \
         "https://github.com/aiakit/homgingai/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
