@@ -18,14 +18,13 @@ RUN \
     esac && \
     echo "Architecture: $BUILD_ARCH, Machine: $MACHINE" && \
     FILE_NAME="hahub_${HAHUB_VERSION}_linux_${MACHINE}.tar.gz" && \
-    FILE_DIR="hahub_${HAHUB_VERSION}_linux_${MACHINE}" && \
-    echo "Downloading: https://github.com/aiakit/hahub/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" && \
+    echo "File: $FILE_NAME" && \
+    echo "Downloading: https://github.com/aiakit/hahub/releases/download/${HAHUB_VERSION}/${FILE_NAME}" && \
     curl -L -o /tmp/${FILE_NAME} \
         "https://github.com/aiakit/hahub/releases/download/${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
     mkdir -p ${APP_PATH} && \
     tar xzf /tmp/${FILE_NAME} -C /tmp || exit 1 && \
-    cp -f /tmp/${FILE_DIR}/hahub ${APP_PATH}/ || exit 1 && \
-    rm -rf /tmp/${FILE_NAME} /tmp/${FILE_DIR}
+    cp -f /tmp/hahub ${APP_PATH}/ || exit 1 && \
 
 # 复制启动脚本
 COPY run.sh /
