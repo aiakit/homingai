@@ -2,7 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 ARG BUILD_ARCH
-ARG FRPC_VERSION
+ARG HAHUB_VERSION
 
 ENV APP_PATH="/usr/src"
 
@@ -17,14 +17,14 @@ RUN \
         *) echo "Unsupported architecture: $BUILD_ARCH" && exit 1 ;; \
     esac && \
     echo "Architecture: $BUILD_ARCH, Machine: $MACHINE" && \
-    FILE_NAME="frp_${FRPC_VERSION}_linux_${MACHINE}.tar.gz" && \
-    FILE_DIR="frp_${FRPC_VERSION}_linux_${MACHINE}" && \
-    echo "Downloading: https://github.com/fatedier/frp/releases/download/v${FRPC_VERSION}/${FILE_NAME}" && \
+    FILE_NAME="homgingai_${HAHUB_VERSION}_linux_${MACHINE}.tar.gz" && \
+    FILE_DIR="homgingai_${HAHUB_VERSION}_linux_${MACHINE}" && \
+    echo "Downloading: https://github.com/aiakit/homgingai/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" && \
     curl -L -o /tmp/${FILE_NAME} \
-        "https://github.com/fatedier/frp/releases/download/v${FRPC_VERSION}/${FILE_NAME}" || exit 1 && \
+        "https://github.com/aiakit/homgingai/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
     mkdir -p ${APP_PATH} && \
     tar xzf /tmp/${FILE_NAME} -C /tmp || exit 1 && \
-    cp -f /tmp/${FILE_DIR}/frpc ${APP_PATH}/ || exit 1 && \
+    cp -f /tmp/${FILE_DIR}/homgingai ${APP_PATH}/ || exit 1 && \
     rm -rf /tmp/${FILE_NAME} /tmp/${FILE_DIR}
 
 # 复制启动脚本

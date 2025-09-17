@@ -6,10 +6,10 @@ build_from:
   i386: ghcr.io/home-assistant/i386-base:3.15
 
 labels:
-  org.opencontainers.image.title: Frpc
-  org.opencontainers.image.description: frpc for homeassistant
-  org.opencontainers.image.source: https://github.com/aiakit/frpc/blob/main/logo.png
+  org.opencontainers.image.title: homgingai
+  org.opencontainers.image.description: homgingai for homeassistant
+  org.opencontainers.image.source: https://github.com/aiakit/homgingai/blob/main/logo.png
   org.opencontainers.image.licenses: Apache License 2.0
 
 args:
-  FRPC_VERSION: "0.61.0"
+  HAHUB_VERSION: "v1.0.2"

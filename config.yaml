@@ -1,8 +1,8 @@
-name: Frpc
+name: homgingai
 version: 1.0.0
-slug: frpc_homeassistant
-description: FRP Client add-on for Home Assistant with support
-url: https://github.com/aiakit/frpc
+slug: homgingai_homeassistant
+description: homgingai Client/Server add-on for Home Assistant with support
+url: https://github.com/aiakit/homgingai
 arch:
   - armhf
   - armv7
@@ -16,14 +16,12 @@ map:
   - addons:rw
   - share:rw
 options:
-  server_addr: xxx.xxx.xxx.xxx
-  server_port: 7000
-  name: web
-  auth_token: xxx
-  custom_domains: xxx.homingai.com
+  phone: 手机号用于消息通知
+  password: api密码，长度至少6位
+  openai_key: openai密钥
+  auth_token: homeassistant令牌
 schema:
-  server_addr: str
-  server_port: int
-  name: str
+  phone: str
+  password: str
+  openai_key: str
   auth_token: str
-  custom_domains: str
