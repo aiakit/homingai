@@ -19,9 +19,9 @@ RUN \
     echo "Architecture: $BUILD_ARCH, Machine: $MACHINE" && \
     FILE_NAME="hahub_${HAHUB_VERSION}_linux_${MACHINE}.tar.gz" && \
     echo "File: $FILE_NAME" && \
-    echo "Downloading: https://github.com/aiakit/hahub/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" && \
+    echo "Downloading: https://github.com/aiakit/hahub/releases/download/${HAHUB_VERSION}/${FILE_NAME}" && \
     curl -L -o /tmp/${FILE_NAME} \
-        "https://github.com/aiakit/hahub/releases/download/v${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
+        "https://github.com/aiakit/hahub/releases/download/${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
     mkdir -p ${APP_PATH} && \
     tar xzf /tmp/${FILE_NAME} -C /tmp || exit 1 && \
     cp -f /tmp/hahub ${APP_PATH}/ || exit 1 && \
