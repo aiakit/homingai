@@ -17,20 +17,13 @@ RUN \
         *) echo "Unsupported architecture: $BUILD_ARCH" && exit 1 ;; \
     esac && \
     echo "Architecture: $BUILD_ARCH, Machine: $MACHINE" && \
-    FILE_NAME="hahub_${HAHUB_VERSION}_linux_${MACHINE}.tar.gz" && \
-    FILE_DIR="hahub_${HAHUB_VERSION}_linux_${MACHINE}" && \
-    echo "File: $FILE_NAME" && \
-    echo "Downloading: https://github.com/aiakit/hahub/releases/download/${HAHUB_VERSION}/${FILE_NAME}" && \
-    curl -L -o /tmp/${FILE_NAME} \
-        "https://github.com/aiakit/hahub/releases/download/${HAHUB_VERSION}/${FILE_NAME}" || exit 1 && \
+    FILE_NAME="hahub" && \
+    echo "Copying ${FILE_NAME} from project root" && \
     mkdir -p ${APP_PATH} && \
-    tar xzf /tmp/${FILE_NAME} -C /tmp || exit 1 && \
-    cp -f /tmp/${FILE_DIR}/hahub ${APP_PATH}/ || exit 1 && \
-    cp -rf /tmp/${FILE_DIR}/web ${APP_PATH}/ || exit 1 && \
-    rm -rf /tmp/${FILE_NAME} /tmp/${FILE_DIR}
+    cp -f /hahub ${APP_PATH}/ || exit 1
 
 # 复制启动脚本
 COPY run.sh /
 RUN chmod a+x /run.sh
 
-CMD [ "/run.sh" ]
+CMD ["/run.sh"]
