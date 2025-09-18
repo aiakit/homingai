@@ -53,7 +53,7 @@ if [ ! -f "${CONFIG_PATH}" ]; then
     exit 1
 fi
 
-export HASS_PHONE = "${PHONE}"
+export HASS_PHONE="${PHONE}"
 export HASS_SERVER="http://supervisor/core"
 export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
 
