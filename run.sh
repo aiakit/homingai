@@ -56,13 +56,15 @@ if [ ! -f "${CONFIG_PATH}" ]; then
     exit 1
 fi
 
+export HASS_SERVER="http://supervisor/core"
+export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
+
 # 启动 hahub
 bashio::log.info "Starting hahub Client/Server with configuration at ${CONFIG_PATH}"
 cd /usr/src
 ./hahub -c $CONFIG_PATH > "${LOG_FILE}" 2>&1 & WAIT_PIDS+=($!) & tail -f ${LOG_FILE}
 
-export HASS_SERVER="http://supervisor/core"
-export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
+
 
 trap "stop_hahub" SIGTERM SIGHUP
 
