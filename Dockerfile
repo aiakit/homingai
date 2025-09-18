@@ -2,7 +2,6 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 ARG BUILD_ARCH
-ARG HAHUB_VERSION
 
 ENV APP_PATH="/usr/src"
 
@@ -17,10 +16,12 @@ RUN \
         *) echo "Unsupported architecture: $BUILD_ARCH" && exit 1 ;; \
     esac && \
     echo "Architecture: $BUILD_ARCH, Machine: $MACHINE" && \
-    FILE_NAME="hahub" && \
+    FILE_NAME="hahub.tar.gz" && \
     echo "Copying ${FILE_NAME} from project root" && \
     mkdir -p ${APP_PATH} && \
-    cp -f /hahub ${APP_PATH}/ || exit 1
+    # 解压缩并复制文件
+    tar -xzf /tmp/${FILE_NAME} -C ${APP_PATH} && \
+    echo "Copied ${FILE_NAME} to ${APP_PATH}"
 
 # 复制启动脚本
 COPY run.sh /

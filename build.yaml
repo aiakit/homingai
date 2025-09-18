@@ -11,5 +11,3 @@ labels:
   org.opencontainers.image.source: https://github.com/aiakit/homgingai/blob/main/logo.png
   org.opencontainers.image.licenses: Apache License 2.0
 
-args:
-  HAHUB_VERSION: "1.0.0"
