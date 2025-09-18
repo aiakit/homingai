@@ -28,7 +28,5 @@ map:
   - homeassistant_config:rw  # 允许访问 Home Assistant 配置
 options:
   phone: 手机号用于消息通知
-  openai_key: openai密钥
 schema:
   phone: str
-  openai_key: str

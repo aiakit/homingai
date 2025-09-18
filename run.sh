@@ -35,7 +35,6 @@ chmod +x "${APP_PATH}/hahub"
 
 # 从 Home Assistant 配置中获取值
 PHONE=$(bashio::config 'phone')
-OPENAI_KEY=$(bashio::config 'openai_key')
 
 bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
@@ -56,6 +55,7 @@ if [ ! -f "${CONFIG_PATH}" ]; then
     exit 1
 fi
 
+export HASS_PHONE = "${PHONE}"
 export HASS_SERVER="http://supervisor/core"
 export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
 
