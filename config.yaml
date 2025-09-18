@@ -8,8 +8,8 @@ web_ui: "http://this:7999"
 ports:
   7999/tcp: 7999
 init: false
+host_network: true
 audio: true
-panel: true
 homeassistant_api: true
 #startup: services
 panel_icon: mdi:robot-dead

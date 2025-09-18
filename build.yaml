@@ -12,4 +12,4 @@ labels:
   org.opencontainers.image.licenses: Apache License 2.0
 
 args:
-  HAHUB_VERSION: "v1.0.7"
+  HAHUB_VERSION: "v1.0.8"
