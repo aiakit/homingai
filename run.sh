@@ -39,12 +39,10 @@ PHONE=$(bashio::config 'phone')
 bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
 bashio::log.info "PHONE: ${PHONE}"
-bashio::log.info "OPENAI_KEY: ${OPENAI_KEY}"
 
 # 创建 TOML 配置文件
 cat > "${CONFIG_PATH}" << EOL
 phone = "${PHONE}"
-openai_key = "${OPENAI_KEY}"
 EOL
 
 cat $CONFIG_PATH

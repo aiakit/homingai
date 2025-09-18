@@ -13,4 +13,3 @@
 ---
 
     phone = "手机号"
-    openai_key = "AI的key"
