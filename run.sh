@@ -3,8 +3,8 @@
 set -e
 
 # 定义配置文件路径
-CONFIG_PATH=/config/hahub.toml
-LOG_FILE="/config/hahub.log"
+CONFIG_PATH=/data/hahub.toml
+LOG_FILE="/data/hahub.log"
 APP_PATH="/usr/src"
 WAIT_PIDS=()
 

@@ -13,6 +13,4 @@
 ---
 
     phone = "手机号"
-    passowrd = "个人密码"
-    auth_token = "homeassistant令牌"
     openai_key = "AI的key"
