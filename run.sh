@@ -34,7 +34,12 @@ FILTER_MESSAGE=$(bashio::config 'filter_message')
 bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
 bashio::log.info "MAIL: ${MAIL}"
+bashio::log.info "PHONE: ${PHONE}"
+bashio::log.info "OPENAI_MODE: ${OPENAI_MODE}"
 bashio::log.info "SPEAKERS: ${SPEAKERS}"
+bashio::log.info "OPENAI_ADDRESS: ${OPENAI_ADDRESS}"
+bashio::log.info "OPENAI_KEY: ${OPENAI_KEY}"
+bashio::log.info "FILTER_MESSAGE: ${FILTER_MESSAGE}"
 
 export HASS_PHONE="${PHONE}"
 export HASS_MAIL="${MAIL}"
