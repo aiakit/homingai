@@ -1,5 +1,5 @@
 name: homgingai
-version: 1.0.1
+version: 1.0.2
 slug: homgingai_homeassistant
 description: homgingai Client/Server add-on for Home Assistant with support
 url: https://github.com/aiakit/homgingai
@@ -22,12 +22,18 @@ map:
   - addon_config:rw
   - homeassistant_config:rw  # 允许访问 Home Assistant 配置
 options:
+  phone: 手机号，用于发送紧急通知
   mail: 邮箱地址
-  speakers: 音箱实体id, 多个用英文逗号隔开
+  speakers: 音箱iot设备id, 多个用英文逗号隔开
   openai_address: 支持openai api的地址
   openai_key: openai api key
+  openai_mode: 模型
+  filter_message: 过滤直接使用AI
 schema:
+  phone: str
   mail: str
   speakers: str
   openai_address: str
   openai_key: str
+  openai_mode: str
+  filter_message: str
