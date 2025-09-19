@@ -23,13 +23,16 @@ fi
 chmod +x "${APP_PATH}/hahub"
 
 # 从 Home Assistant 配置中获取值
-PHONE=$(bashio::config 'phone')
+MAIL=$(bashio::config 'mail')
+SPEAKERS=$(bashio::config 'speakers')
 
 bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
-bashio::log.info "PHONE: ${PHONE}"
+bashio::log.info "MAIL: ${MAIL}"
+bashio::log.info "SPEAKERS: ${SPEAKERS}"
 
-export HASS_PHONE="${PHONE}"
+export HASS_MAIL="${MAIL}"
+export HASS_SPEAKERS="${SPEAKERS}"
 export HASS_SERVER="http://supervisor/core"
 export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
 

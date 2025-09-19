@@ -22,6 +22,8 @@ map:
   - addon_config:rw
   - homeassistant_config:rw  # 允许访问 Home Assistant 配置
 options:
-  phone: 手机号用于消息通知
+  mail: 邮箱地址
+  speakers: 音箱实体id, 多个用英文逗号隔开
 schema:
-  phone: str
+  mail: str
+  speakers: str
