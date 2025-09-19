@@ -24,6 +24,10 @@ map:
 options:
   mail: 邮箱地址
   speakers: 音箱实体id, 多个用英文逗号隔开
+  openai_address: 支持openai api的地址
+  openai_key: openai api key
 schema:
   mail: str
   speakers: str
+  openai_address: str
+  openai_key: str
