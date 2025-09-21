@@ -1,0 +1,7 @@
+configuration:
+  message:
+    name: This project is used to configure and manage the homgingai (homgingai client), helping users achieve internal network penetration functionality.
+    description: |
+      - Provides a simple homgingai client configuration
+      - Supports remote access to internal network services
+      - Convenient connection management
