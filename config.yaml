@@ -1,5 +1,5 @@
 name: homgingai
-version: 1.0.0
+version: 1.0.3
 slug: homgingai_homeassistant
 description: homgingai Client/Server add-on for Home Assistant with support
 url: https://github.com/aiakit/homgingai
@@ -8,6 +8,8 @@ init: false
 host_network: true
 homeassistant_api: true
 panel_icon: mdi:robot-dead
+#ports:
+#  8129/tcp: 8129
 arch:
   - armhf
   - armv7
@@ -22,18 +24,18 @@ map:
   - addon_config:rw
   - homeassistant_config:rw  # 允许访问 Home Assistant 配置
 options:
-  phone:
-  mail:
-  speakers:
-  openai_address:
-  openai_key:
-  openai_mode:
-  filter_message:
+  phone: ""
+  mail: ""
+  speakers: ""
+  openai_address: ""
+  openai_key: ""
+  openai_mode: ""
+  filter_message: ""
 schema:
-  phone: str | None
-  mail: str | None
-  speakers: str | None
-  openai_address: str | None
-  openai_key: str | None
-  openai_mode: str | None
-  filter_message: str | None
+  phone: str?
+  mail: str?
+  speakers: str?
+  openai_address: str?
+  openai_key: str?
+  openai_mode: str?
+  filter_message: str?
