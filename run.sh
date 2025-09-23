@@ -29,6 +29,7 @@ OPENAI_ADDRESS=$(bashio::config 'openai_address')
 OPENAI_KEY=$(bashio::config 'openai_key')
 OPENAI_MODE=$(bashio::config 'openai_mode')
 FILTER_MESSAGE=$(bashio::config 'filter_message')
+POETRY=$(bashio::config 'poetry')
 
 bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
@@ -38,6 +39,7 @@ bashio::log.info "OPENAI_MODE: ${OPENAI_MODE}"
 bashio::log.info "OPENAI_ADDRESS: ${OPENAI_ADDRESS}"
 bashio::log.info "OPENAI_KEY: ${OPENAI_KEY}"
 bashio::log.info "FILTER_MESSAGE: ${FILTER_MESSAGE}"
+bashio::log.info "FILTER_MESSAGE: ${POETRY}"
 
 export HASS_PHONE="${PHONE}"
 export HASS_MAIL="${MAIL}"
@@ -47,6 +49,7 @@ export HASS_OPENAI_KEY="${OPENAI_KEY}"
 export HASS_SERVER="http://supervisor/core"
 export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
 export HASS_FILTER_MESSAGE="${FILTER_MESSAGE}"
+export HASS_POETRY="${POETRY}"
 
 # 启动 hahub
 cd /usr/src

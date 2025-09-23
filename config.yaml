@@ -30,6 +30,7 @@ options:
   openai_key: ""
   openai_mode: ""
   filter_message: ""
+  poetry: ""
 schema:
   phone: str?
   mail: str?
@@ -37,3 +38,4 @@ schema:
   openai_key: str?
   openai_mode: str?
   filter_message: str?
+  poetry: str?
