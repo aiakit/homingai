@@ -25,7 +25,6 @@ chmod +x "${APP_PATH}/hahub"
 # 从 Home Assistant 配置中获取值
 PHONE=$(bashio::config 'phone')
 MAIL=$(bashio::config 'mail')
-SPEAKERS=$(bashio::config 'speakers')
 OPENAI_ADDRESS=$(bashio::config 'openai_address')
 OPENAI_KEY=$(bashio::config 'openai_key')
 OPENAI_MODE=$(bashio::config 'openai_mode')
@@ -36,7 +35,6 @@ bashio::log.info "Configuration created with following settings:"
 bashio::log.info "MAIL: ${MAIL}"
 bashio::log.info "PHONE: ${PHONE}"
 bashio::log.info "OPENAI_MODE: ${OPENAI_MODE}"
-bashio::log.info "SPEAKERS: ${SPEAKERS}"
 bashio::log.info "OPENAI_ADDRESS: ${OPENAI_ADDRESS}"
 bashio::log.info "OPENAI_KEY: ${OPENAI_KEY}"
 bashio::log.info "FILTER_MESSAGE: ${FILTER_MESSAGE}"
@@ -44,7 +42,6 @@ bashio::log.info "FILTER_MESSAGE: ${FILTER_MESSAGE}"
 export HASS_PHONE="${PHONE}"
 export HASS_MAIL="${MAIL}"
 export HASS_OPENAI_MODE="${OPENAI_MODE}"
-export HASS_SPEAKERS="${SPEAKERS}"
 export HASS_OPENAI_ADDRESS="${OPENAI_ADDRESS}"
 export HASS_OPENAI_KEY="${OPENAI_KEY}"
 export HASS_SERVER="http://supervisor/core"
