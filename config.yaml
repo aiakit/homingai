@@ -1,5 +1,5 @@
 name: homgingai
-version: 1.0.4
+version: 1.0.7
 slug: homgingai_homeassistant
 description: homgingai Client/Server add-on for Home Assistant with support
 url: https://github.com/aiakit/homgingai
@@ -26,16 +26,22 @@ map:
 options:
   phone: ""
   mail: ""
+  wake_up_mail: ""
   openai_address: ""
   openai_key: ""
   openai_mode: ""
   filter_message: ""
   poetry: ""
+  too_long: ""
+  is_display: "1表示开启智能演示智能体，其他不开启"
 schema:
   phone: str?
   mail: str?
+  wake_up_mail: str?
   openai_address: str?
   openai_key: str?
   openai_mode: str?
   filter_message: str?
   poetry: str?
+  too_long: str?
+  is_display: str?

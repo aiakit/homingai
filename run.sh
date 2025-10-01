@@ -25,11 +25,14 @@ chmod +x "${APP_PATH}/hahub"
 # 从 Home Assistant 配置中获取值
 PHONE=$(bashio::config 'phone')
 MAIL=$(bashio::config 'mail')
+WAKE_UP_MAIL=$(bashio::config 'wake_up_mail')
 OPENAI_ADDRESS=$(bashio::config 'openai_address')
 OPENAI_KEY=$(bashio::config 'openai_key')
 OPENAI_MODE=$(bashio::config 'openai_mode')
 FILTER_MESSAGE=$(bashio::config 'filter_message')
 POETRY=$(bashio::config 'poetry')
+TOO_LONG=$(bashio::config 'too_long')
+IS_DISPLAY=$(bashio::config 'is_display')
 
 bashio::log.info "Creating hahub Client/Server configuration..."
 bashio::log.info "Configuration created with following settings:"
@@ -40,9 +43,13 @@ bashio::log.info "OPENAI_ADDRESS: ${OPENAI_ADDRESS}"
 bashio::log.info "OPENAI_KEY: ${OPENAI_KEY}"
 bashio::log.info "FILTER_MESSAGE: ${FILTER_MESSAGE}"
 bashio::log.info "FILTER_MESSAGE: ${POETRY}"
+bashio::log.info "FILTER_MESSAGE: ${TOO_LONG}"
+bashio::log.info "FILTER_MESSAGE: ${IS_DISPLAY}"
+bashio::log.info "FILTER_MESSAGE: ${WAKE_UP_MAIL}"
 
 export HASS_PHONE="${PHONE}"
 export HASS_MAIL="${MAIL}"
+export HASS_WAKE_UP_MAIL="${WAKE_UP_MAIL}"
 export HASS_OPENAI_MODE="${OPENAI_MODE}"
 export HASS_OPENAI_ADDRESS="${OPENAI_ADDRESS}"
 export HASS_OPENAI_KEY="${OPENAI_KEY}"
@@ -50,6 +57,8 @@ export HASS_SERVER="http://supervisor/core"
 export HASS_TOKEN="${SUPERVISOR_TOKEN:-}"
 export HASS_FILTER_MESSAGE="${FILTER_MESSAGE}"
 export HASS_POETRY="${POETRY}"
+export HASS_TOO_LONG="${TOO_LONG}"
+export HASS_IS_DISPLAY="${IS_DISPLAY}"
 
 # 启动 hahub
 cd /usr/src
