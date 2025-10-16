@@ -30,10 +30,12 @@ options:
   openai_address: ""
   openai_key: ""
   openai_mode: ""
+  openai_fast_mode: ""
   filter_message: ""
   poetry: ""
   too_long: ""
   is_display: "1表示开启智能演示智能体，其他不开启"
+  display: "演示区域选择"
 schema:
   phone: str?
   mail: str?
@@ -41,7 +43,9 @@ schema:
   openai_address: str?
   openai_key: str?
   openai_mode: str?
+  openai_fast_mode: str?
   filter_message: str?
   poetry: str?
   too_long: str?
   is_display: str?
+  display: str?
