@@ -10,4 +10,3 @@ labels:
   org.opencontainers.image.description: homgingai for homeassistant
   org.opencontainers.image.source: https://github.com/aiakit/homgingai/blob/main/logo.png
   org.opencontainers.image.licenses: Apache License 2.0
-
