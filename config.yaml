@@ -35,7 +35,7 @@ options:
   poetry: ""
   too_long: ""
   is_display: "1表示开启智能演示智能体，其他不开启"
-  display: "演示区域选择"
+  display_area: "演示区域选择"
 schema:
   phone: str?
   mail: str?
@@ -48,4 +48,4 @@ schema:
   poetry: str?
   too_long: str?
   is_display: str?
-  display: str?
+  display_area: str?
